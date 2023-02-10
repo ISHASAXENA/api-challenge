@@ -1,0 +1,36 @@
+type Mutation {
+    createUser(user:UserInput):User
+    createAccount(account:AccountInput):Account
+}
+
+type Query {
+    allUsers:[User]
+    getUser(emailAddress:String):User
+    allAccounts:[Account]
+    getAccount(userId:String):Account
+}
+
+type User {
+    name:String
+    emailAddress:String
+    monthlySalary:Float
+    monthlyExpenses:Float
+}
+
+type Account {
+    accountId:ID!
+    accountType:String
+    userId:String
+}
+
+input UserInput {
+    name:String
+    emailAddress:String
+    monthlySalary:Float
+    monthlyExpenses:Float
+}
+
+input AccountInput {
+    accountType:String
+    userId:String
+}
